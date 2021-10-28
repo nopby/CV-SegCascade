@@ -45,20 +45,26 @@ class UI:
                 self.Images.clear()
                 self.ImageLabels.clear()
 
+
+            # Read Image
             image = cv2.imread(filename)
 
+            # Resize Image
             image = cv2.resize(image, dsize=(512, 512), interpolation=cv2.INTER_NEAREST)
             
+            # Initial mask
             facemask = np.zeros(image.shape[:2]).astype(np.uint8)
             mouthmask = np.zeros(image.shape[:2]).astype(np.uint8)
             
-
+            # Load classifier
             faceCascade = cv2.CascadeClassifier("App/Model/Face.xml")
             mouthCascade = cv2.CascadeClassifier("App/Model/Mouth.xml")
 
+            # Detect object from image with classifier
             faces = faceCascade.detectMultiScale(image, 1.3, 5)
             mouth = mouthCascade.detectMultiScale(image, 1.3, 5)
 
+            # Mark object with rectangle
             for ((x0, y0, w0, h0), (x1, y1, w1, h1)) in zip(faces, mouth):
                 cv2.rectangle(facemask, (x0, y0), (x0+w0, y0+h0), (255, 255, 255), -1)
                 cv2.rectangle(mouthmask, (x1, y1), (x1+w1, y1+h1), (255, 255, 255), -1)
@@ -67,6 +73,8 @@ class UI:
 
 
             colors = ['b', 'g', 'r']
+
+            # Histogram
             fPltHisto = Figure()
             f = fPltHisto.add_subplot(221)
             m = fPltHisto.add_subplot(222)
@@ -78,13 +86,17 @@ class UI:
             
             f.title.set_text("Face Masked Histogram")
             m.title.set_text("Mouth Masked Histogram")
+
+            # Save histogram to BytesIO
             faceimghisto = BytesIO()
             fPltHisto.savefig(faceimghisto)
 
             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            # Create Masked Image
             faceMaskedColor = cv2.bitwise_and(image, image, mask=facemask)
             mouthImMasked = cv2.bitwise_and(image, image, mask=mouthmask)
 
+            # Convert image array to PIL Image
             image = Image.fromarray(image)
             facemask = Image.fromarray(facemask)
             mouthmask = Image.fromarray(mouthmask)
@@ -92,32 +104,31 @@ class UI:
             mouthImMasked = Image.fromarray(mouthImMasked)
             fhisto = Image.open(faceimghisto).convert("RGB")
 
+            # Add all PIL Image to list (Save file list)
             self.Images.append(image)
-            
             self.Images.append(facemask)
             self.Images.append(mouthmask)
-
             self.Images.append(faceMaskedColor)
             self.Images.append(mouthImMasked)
             self.Images.append(fhisto)
-            image = PhotoImage(image)
 
+            # Convert PIL Image to PhotoImage
+            image = PhotoImage(image)
             facemask = PhotoImage(facemask)
             mouthmask = PhotoImage(mouthmask)
-
             faceMaskedColor = PhotoImage(faceMaskedColor)
             mouthImMasked = PhotoImage(mouthImMasked)
             fhisto = PhotoImage(fhisto)
-            self.ImageLabels.append(image)
 
+            # Add all PhotoImage to list (Output Image)
+            self.ImageLabels.append(image)
             self.ImageLabels.append(facemask)
             self.ImageLabels.append(mouthmask)
-
             self.ImageLabels.append(faceMaskedColor)
             self.ImageLabels.append(mouthImMasked)
             self.ImageLabels.append(fhisto)
 
-            # Output Image with Created Image Labels
+            # Output Image with Label
             self.OutputImage = Label(image=self.ImageLabels[0])
             self.OutputImage.grid(row=1, column=1)
 
