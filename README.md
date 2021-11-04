@@ -6,3 +6,14 @@ pip install -r requirements.txt
 
 # Run
 python main.py
+
+How to load image:
+Untuk memuat gambar yang ingin disegmentasi, cukup mengklik menu file pada menu bar
+Terdapat menu open untuk memuat gambar, dan save untuk menyimpan gambar yang sudah di segmentasi
+
+Contributor:
+- [Byron Harnope](github.com/nopby)
+- [Ridwan Adi Saputra](mailto:s32180061@student.ubm.ac.id)
+- [Derry Leo Nardi](github.com/Realch)
+- [Daniel Ronaldo P](github.com/NRZero1)
+- [Arvin Christopher](github.com/arvinchr)
