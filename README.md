@@ -15,5 +15,5 @@ Contributor:
 - [Byron Harnope](github.com/nopby)
 - [Ridwan Adi Saputra](mailto:s32180061@student.ubm.ac.id)
 - [Derry Leo Nardi](github.com/Realch)
-- [Daniel Ronaldo P](github.com/NRZero1)
+- [Daniel Ronaldo P](https://github.com/NRZero1)
 - [Arvin Christopher](github.com/arvinchr)
