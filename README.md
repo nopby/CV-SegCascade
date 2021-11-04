@@ -12,8 +12,8 @@ Untuk memuat gambar yang ingin disegmentasi, cukup mengklik menu file pada menu 
 Terdapat menu open untuk memuat gambar, dan save untuk menyimpan gambar yang sudah di segmentasi
 
 Contributor:
-- [Byron Harnope](github.com/nopby)
+- [Byron Harnope](https://github.com/nopby)
 - [Ridwan Adi Saputra](mailto:s32180061@student.ubm.ac.id)
-- [Derry Leo Nardi](github.com/Realch)
+- [Derry Leo Nardi](https://github.com/Realch)
 - [Daniel Ronaldo P](https://github.com/NRZero1)
-- [Arvin Christopher](github.com/arvinchr)
+- [Arvin Christopher](https://github.com/arvinchr)
