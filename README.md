@@ -5,7 +5,7 @@ PROGRAM UTS COMPUTER VISION
 pip install -r requirements.txt
 
 # Run
-python main.py
+Ketik "python main.py" pada console
 
 How to load image:
 Untuk memuat gambar yang ingin disegmentasi, cukup mengklik menu file pada menu bar
